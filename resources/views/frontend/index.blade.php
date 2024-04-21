@@ -2,14 +2,14 @@
 @section('home')
 
 @section('title')
-Luyện Thi Công Chức
+Sonos Team Dashboard
 @endsection
 
 <div class="section-block"></div>
 <!--======================================
         START COURSE AREA
 ======================================-->
-@include('frontend.home.courses-area')
+{{--@include('frontend.home.courses-area')--}}
 <!--======================================
         END COURSE AREA
 ======================================-->
@@ -17,7 +17,7 @@ Luyện Thi Công Chức
 <!--======================================
         START CATEGORY AREA
 ======================================-->
-@include('frontend.home.category-area')
+{{--@include('frontend.home.category-area')--}}
 <!--======================================
         END CATEGORY AREA
 ======================================-->
@@ -60,7 +60,7 @@ Luyện Thi Công Chức
 <!-- ================================
        START BLOG AREA
 ================================= -->
-@include('frontend.home.blog-area')
+{{--@include('frontend.home.blog-area')--}}
 <!-- ================================
        START BLOG AREA
 ================================= -->
@@ -68,7 +68,7 @@ Luyện Thi Công Chức
 <!--======================================
         START ABOUT AREA
 ======================================-->
-@include('frontend.home.about-area')
+{{--@include('frontend.home.about-area')--}}
 <!--======================================
         END ABOUT AREA
 ======================================-->
@@ -121,7 +121,7 @@ Luyện Thi Công Chức
 <!--======================================
         START SUBSCRIBER AREA
 ======================================-->
-@include('frontend.home.subscriber-area')
+{{--@include('frontend.home.subscriber-area')--}}
 <!--======================================
         END SUBSCRIBER AREA
 ======================================-->

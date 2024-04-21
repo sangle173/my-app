@@ -12,7 +12,7 @@
                             <li class="d-flex align-items-center pr-3 mr-3 border-right border-right-gray"><i
                                     class="la la-phone mr-1"></i><a href="tel:00123456789"> 0905 123 346</a></li>
                             <li class="d-flex align-items-center"><i class="la la-envelope-o mr-1"></i><a
-                                    href="mailto: luyenthicongchuc.ad@gmail.com">luyenthicongchuc.ad@gmail.com</a></li>
+                                    href="mailto: luyenthicongchuc.ad@gmail.com">sonos-qateam</a></li>
                         </ul>
                     </div><!-- end header-widget -->
                 </div><!-- end col-lg-6 -->
@@ -44,15 +44,15 @@
 
                             @auth
                                 <li class="d-flex align-items-center pr-3 mr-3 border-right border-right-gray"><i
-                                        class="la la-sign-in mr-1"></i><a href="{{ route('dashboard') }}"> Tài khoản</a>
+                                        class="la la-sign-in mr-1"></i><a href="{{ route('dashboard') }}"> Dashboard</a>
                                 </li>
                                 <li class="d-flex align-items-center"><i class="la la-user mr-1"></i><a
-                                        href="{{ route('user.logout') }}"> Đăng xuất</a></li>
+                                        href="{{ route('user.logout') }}"> Logout</a></li>
 
                             @else
 
                                 <li class="d-flex align-items-center pr-3 mr-3 border-right border-right-gray"><i
-                                        class="la la-sign-in mr-1"></i><a href="{{ route('login') }}"> Đăng nhập</a>
+                                        class="la la-sign-in mr-1"></i><a href="{{ route('login') }}"> Login</a>
                                 </li>
                                 {{--    <li class="d-flex align-items-center"><i class="la la-user mr-1"></i><a href="{{ route('register') }}"> Đăng ký</a></li>--}}
 
@@ -72,7 +72,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-2">
                         <div class="logo-box">
-                            <a href="{{ url('/') }}" class="logo"><img src="{{ asset('frontend/images/logo.png') }}"
+                            <a href="{{ url('/') }}" class="logo"><img src="{{ asset('frontend/images/logo2.png') }}"
                                                                        width="250px" height="60px" alt="logo"></a>
                             <div class="user-btn-action">
                                 <div class="search-menu-toggle icon-element icon-element-sm shadow-sm mr-2"
@@ -94,7 +94,7 @@
                     </div><!-- end col-lg-2 -->
 
                     @php
-                        $categories = App\Models\Category::orderBy('category_name','ASC')->get();
+                        $teams = App\Models\Team::orderBy('team_name','ASC')->get();
                     @endphp
 
                     <div class="col-lg-10">
@@ -102,23 +102,13 @@
                             <div class="menu-category">
                                 <ul>
                                     <li>
-                                        <a href="#">Danh mục <i class="la la-angle-down fs-12"></i></a>
+                                        <a href="#">Team <i class="la la-angle-down fs-12"></i></a>
                                         <ul class="cat-dropdown-menu">
 
-                                            @foreach ($categories as $cat)
-                                                @php
-                                                    $subcategories = App\Models\SubCategory::where('category_id',$cat->id)->get();
-                                                @endphp
+                                            @foreach ($teams as $cat)
                                                 <li>
-                                                    <a href="{{ url('category/'.$cat->id.'/'.$cat->category_slug) }}">{{ $cat->category_name }}
+                                                    <a href="{{ url('category/'.$cat->id.'/'.$cat->team_slug) }}">{{ $cat->team_name }}
                                                         <i class="la la-angle-right"></i></a>
-                                                    <ul class="sub-menu">
-                                                        @foreach ($subcategories as $subcat)
-                                                            <li>
-                                                                <a href="{{ url('subcategory/'.$subcat->id.'/'.$subcat->subcategory_slug) }}">{{ $subcat->subcategory_name }}</a>
-                                                            </li>
-                                                        @endforeach
-                                                    </ul>
                                                 </li>
                                             @endforeach
 
@@ -129,58 +119,20 @@
                             <form method="post">
                                 <div class="form-group mb-0">
                                     <input class="form-control form--control pl-3" type="text" name="search"
-                                           placeholder="Tìm kiếm ...">
+                                           placeholder="Search ...">
                                     <span class="la la-search search-icon"></span>
                                 </div>
                             </form>
                             <nav class="main-menu">
                                 <ul>
                                     <li>
-                                        <a href="{{ url('/')}}">Trang chủ </a>
+                                        <a href="{{ url('/')}}">Homepage</a>
                                     </li>
                                     <li>
-                                        <a href="{{ url('course/all') }}">Khóa học </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="{{ route('blog') }}">Bài viết </a>
+                                        <a href="{{ route('blog') }}">Post </a>
                                     </li>
                                 </ul><!-- end ul -->
                             </nav><!-- end main-menu -->
-
-
-                            <div class="shop-cart mr-4">
-                                <ul>
-                                    <li>
-                                        <p class="shop-cart-btn d-flex align-items-center">
-                                            <i class="la la-shopping-cart"></i>
-                                            <span class="product-count" id="cartQty">0</span>
-                                        </p>
-
-                                        <ul class="cart-dropdown-menu">
-
-                                            <div id="miniCart">
-
-                                            </div>
-                                            <br><br>
-
-                                            <li class="media media-card">
-                                                <div class="media-body fs-16">
-                                                    <p class="text-black font-weight-semi-bold lh-18">Total: $<span
-                                                            class="cart-total" id="cartSubTotal"> </span></p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <a href="{{ route('mycart') }}" class="btn theme-btn w-100">Giỏ hàng <i
-                                                        class="la la-arrow-right icon ml-1"></i></a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div><!-- end shop-cart -->
-                            {{--        <div class="nav-right-button">--}}
-                            {{--            <a href="admission.html" class="btn theme-btn d-none d-lg-inline-block"><i class="la la-user-plus mr-1"></i> Admission</a>--}}
-                            {{--        </div><!-- end nav-right-button -->--}}
                         </div><!-- end menu-wrapper -->
                     </div><!-- end col-lg-10 -->
                 </div><!-- end row -->
@@ -194,28 +146,25 @@
         </div><!-- end off-canvas-menu-close -->
         <ul class="generic-list-item off-canvas-menu-list pt-90px">
             <li>
-                <a href="{{url('/')}}">Trang chủ</a>
+                <a href="{{url('/')}}">Homepage</a>
             </li>
             <li>
-                <a href="{{ url('course/all') }}">Khóa học</a>
-            </li>
-            <li>
-                <a href="{{ route('blog') }}">Bài viết</a>
+                <a href="{{ route('blog') }}">Post</a>
             </li>
         </ul>
         <ul class="generic-list-item d-flex flex-wrap align-items-center fs-14 border-left border-left-gray pl-3 ml-3">
 
             @auth
                 <li class="d-flex align-items-center pr-3 mr-3 border-right border-right-gray"><i
-                        class="la la-sign-in mr-1"></i><a href="{{ route('dashboard') }}"> Tài khoản</a>
+                        class="la la-sign-in mr-1"></i><a href="{{ route('dashboard') }}"> Dashboard</a>
                 </li>
                 <li class="d-flex align-items-center"><i class="la la-user mr-1"></i><a
-                        href="{{ route('user.logout') }}"> Đăng xuất</a></li>
+                        href="{{ route('user.logout') }}"> Logout</a></li>
 
             @else
 
                 <li class="d-flex align-items-center pr-3 mr-3 border-right border-right-gray"><i
-                        class="la la-sign-in mr-1"></i><a href="{{ route('login') }}"> Đăng nhập</a>
+                        class="la la-sign-in mr-1"></i><a href="{{ route('login') }}"> Login</a>
                 </li>
                 {{--    <li class="d-flex align-items-center"><i class="la la-user mr-1"></i><a href="{{ route('register') }}"> Đăng ký</a></li>--}}
 
@@ -230,15 +179,15 @@
             <i class="la la-times"></i>
         </div><!-- end off-canvas-menu-close -->
         @php
-            $categories = App\Models\Category::all();
+            $teams = App\Models\Team::all();
         @endphp
         <ul class="generic-list-item off-canvas-menu-list pt-90px">
             <li>
-                <a href="#" class="text-secondary">Danh mục</a>
+                <a href="#" class="text-secondary">Team</a>
             </li>
-            @foreach ($categories as $cat)
+            @foreach ($teams as $cat)
                 <li>
-                    <a href="{{ url('category/'.$cat->id.'/'.$cat->category_slug) }}">{{ $cat->category_name }}</a>
+                    <a href="{{ url('category/'.$cat->id.'/'.$cat->team_slug) }}">{{ $cat->team_name }}</a>
                 </li>
             @endforeach
         </ul>

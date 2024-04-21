@@ -91,9 +91,9 @@
                                     <a href="{{ route('instructor.course.details',$item->id) }}" class="btn btn-success"><i
                                             class="lni lni-eye"></i></a>
 
-                                    {{--                                    <a href="{{ route('delete.course',$item->id) }}" class="btn btn-danger"--}}
-{{--                                       id="delete"--}}
-{{--                                       title="Xóa"><i class="lni lni-trash"></i> </a>--}}
+                                                                        <a href="{{ route('delete.course',$item->id) }}" class="btn btn-danger"
+                                       id="delete"
+                                       title="Xóa"><i class="lni lni-trash"></i> </a>
 
                                 </td>
                             </tr>

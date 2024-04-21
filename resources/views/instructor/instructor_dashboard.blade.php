@@ -41,7 +41,7 @@
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
 
-	<title>Trang giảng viên </title>
+	<title>QA Board </title>
 </head>
 
 <body>

@@ -9,14 +9,14 @@
                     <ol class="breadcrumb mb-0 p-0">
                         <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">All Instrutor</li>
+                        <li class="breadcrumb-item active" aria-current="page">All QA</li>
                     </ol>
                 </nav>
             </div>
             <div class="ms-auto">
                 <div class="btn-group">
                     <div class="btn-group">
-                        <a href="{{ route('add.instructor') }}" class="btn btn-primary  ">Add Instructor </a>
+                        <a href="{{ route('add.instructor') }}" class="btn btn-primary  ">Add QA </a>
                     </div>
                 </div>
             </div>
@@ -30,10 +30,11 @@
                         <thead>
                         <tr>
                             <th>Sl</th>
-                            <th>User Image</th>
+                            <th>QA Image</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Phone</th>
+                            <th>Address</th>
                             <th>Status</th>
                         </tr>
                         </thead>
@@ -48,6 +49,7 @@
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->email }}</td>
                                 <td>{{ $item->phone }}</td>
+                                <td>{{ $item->address }}</td>
                                 <td>
                                     @if ($item->UserOnline())
                                         <span class="badge badge-pill bg-success">Active Now</span>
@@ -58,7 +60,12 @@
                                     @endif
                                 </td>
                                 <td>
+
                                     <a href="{{ route('edit.instructor',$item->id) }}" class="btn btn-info px-5">Edit </a>
+                                    <a href="{{ route('admin.reset.user',$item->id) }}" class="btn btn-success"
+                                       title="Reset Password">
+                                        <i class='bx bx-reset'></i>
+                                    </a>
                                     <a href="{{ route('delete.admin',$item->id) }}" class="btn btn-danger px-5"
                                        id="delete">Delete </a>
                                 </td>

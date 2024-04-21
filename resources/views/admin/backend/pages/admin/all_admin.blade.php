@@ -55,6 +55,10 @@
                                 </td>
                                 <td>
                                     <a href="{{ route('edit.admin',$item->id) }}" class="btn btn-info px-5">Edit </a>
+                                    <a href="{{ route('admin.reset.user',$item->id) }}" class="btn btn-success"
+                                       title="Reset Password">
+                                        <i class='bx bx-reset'></i>
+                                    </a>
                                     <a href="{{ route('delete.admin',$item->id) }}" class="btn btn-danger px-5"
                                        id="delete">Delete </a>
                                 </td>

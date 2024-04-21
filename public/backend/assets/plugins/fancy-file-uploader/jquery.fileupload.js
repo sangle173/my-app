@@ -69,7 +69,7 @@
       var dataTransfer = e.dataTransfer;
       if (
         dataTransfer &&
-        $.inArray('Files', dataTransfer.types) !== -1 &&
+        $.inArray('File', dataTransfer.types) !== -1 &&
         this._trigger(type, $.Event(type, { delegatedEvent: e })) !== false
       ) {
         e.preventDefault();

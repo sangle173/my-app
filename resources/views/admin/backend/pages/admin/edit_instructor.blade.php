@@ -10,7 +10,7 @@
                 <ol class="breadcrumb mb-0 p-0">
                     <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">Edit Instructor</li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit QA</li>
                 </ol>
             </nav>
         </div>
@@ -20,42 +20,37 @@
 
     <div class="card">
         <div class="card-body p-4">
-            <h5 class="mb-4">Edit Instructor</h5>
+            <h5 class="mb-4">Edit QA</h5>
             <form id="myForm" action="{{ route('update.instructor',$user->id) }}" method="post" class="row g-3" enctype="multipart/form-data">
                 @csrf
 
 
                 <div class="form-group col-md-6">
-                    <label for="input1" class="form-label">Admin User Name</label>
+                    <label for="input1" class="form-label">QA User Name</label>
                     <input type="text" name="username" class="form-control" id="input1" value="{{ $user->username }}" >
                 </div>
 
                 <div class="form-group col-md-6">
-                    <label for="input1" class="form-label">Admin Name</label>
+                    <label for="input1" class="form-label">QA Name</label>
                     <input type="text" name="name" class="form-control" id="input1"  value="{{ $user->name }}" >
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="input1" class="form-label">Admin Email</label>
+                    <label for="input1" class="form-label">QA Email</label>
                     <input type="email" name="email" class="form-control" id="input1"  value="{{ $user->email }}" >
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="input1" class="form-label">Admin Phone</label>
+                    <label for="input1" class="form-label">QA Phone</label>
                     <input type="text" name="phone" class="form-control" id="input1"  value="{{ $user->phone }}" >
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="input1" class="form-label">Admin Address</label>
+                    <label for="input1" class="form-label">QA Address</label>
                     <input type="text" name="address" class="form-control" id="input1"  value="{{ $user->address }}" >
                 </div>
 
-
                 <div class="form-group col-md-6">
                     <label for="input1" class="form-label"> Role Name</label>
-                    <select name="roles" class="form-select mb-3" aria-label="Default select example">
-              <option selected="" disabled>Open this select menu</option>
-                @foreach ($roles as $role)
-               <option value="{{ $role->id }}" {{ $user->hasRole($role->name) ? 'selected' : '' }} > {{ $role->name }}</option>
-
-                @endforeach
+                    <select name="roles" class="form-select mb-3" aria-label="Default select example" disabled>
+                        <option selected="" >QA</option>
                     </select>
                 </div>
 

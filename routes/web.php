@@ -1,6 +1,13 @@
 <?php
 
+use App\Http\Controllers\Backend\ActionController;
+use App\Http\Controllers\Backend\AdminTaskController;
+use App\Http\Controllers\Backend\FileController;
 use App\Http\Controllers\Backend\InstructorBlogController;
+use App\Http\Controllers\Backend\TaskController;
+use App\Http\Controllers\Backend\TeamController;
+use App\Http\Controllers\Backend\TicketStatusController;
+use App\Http\Controllers\Backend\WorkingStatusController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
@@ -112,6 +119,57 @@ Route::controller(CategoryController::class)->group(function(){
     Route::get('/delete/category/{id}','DeleteCategory')->name('delete.category');
 });
 
+// Team All Route
+    Route::controller(TeamController::class)->group(function(){
+        Route::get('/all/team','AllTeam')->name('all.team');
+        Route::get('/add/team','AddTeam')->name('add.team');
+        Route::post('/store/team','StoreTeam')->name('store.team');
+        Route::get('/edit/team/{id}','EditTeam')->name('edit.team');
+        Route::post('/update/team','UpdateTeam')->name('update.team');
+        Route::get('/delete/team/{id}','DeleteTeam')->name('delete.team');
+    });
+
+    // Action All Route
+    Route::controller(ActionController::class)->group(function(){
+        Route::get('/all/action','AllAction')->name('all.action');
+        Route::get('/add/action','AddAction')->name('add.action');
+        Route::post('/store/action','StoreAction')->name('store.action');
+        Route::get('/edit/action/{id}','EditAction')->name('edit.action');
+        Route::post('/update/action','UpdateAction')->name('update.action');
+        Route::get('/delete/action/{id}','DeleteAction')->name('delete.action');
+    });
+
+    // Working Status All Route
+    Route::controller(WorkingStatusController::class)->group(function(){
+        Route::get('/all/workingstatus','AllWorkingStatus')->name('all.workingstatus');
+        Route::get('/add/workingstatus','AddWorkingStatus')->name('add.workingstatus');
+        Route::post('/store/workingstatus','StoreWorkingStatus')->name('store.workingstatus');
+        Route::get('/edit/workingstatus/{id}','EditWorkingStatus')->name('edit.workingstatus');
+        Route::post('/update/workingstatus','UpdateWorkingStatus')->name('update.workingstatus');
+        Route::get('/delete/workingstatus/{id}','DeleteWorkingStatus')->name('delete.workingstatus');
+    });
+
+    // Ticket Status All Route
+    Route::controller(TicketStatusController::class)->group(function(){
+        Route::get('/all/ticketstatus','AllTicketStatus')->name('all.ticketstatus');
+        Route::get('/add/ticketstatus','AddTicketStatus')->name('add.ticketstatus');
+        Route::post('/store/ticketstatus','StoreTicketStatus')->name('store.ticketstatus');
+        Route::get('/edit/ticketstatus/{id}','EditTicketStatus')->name('edit.ticketstatus');
+        Route::post('/update/ticketstatus','UpdateTicketStatus')->name('update.ticketstatus');
+        Route::get('/delete/ticketstatus/{id}','DeleteTicketStatus')->name('delete.ticketstatus');
+    });
+
+    // Task All Task Route
+    Route::controller(AdminTaskController::class)->group(function(){
+        Route::get('/admin/all/task','AdminAllTask')->name('admin.all.task');
+        Route::get('/admin/add/task','AdminAddTask')->name('admin.add.task');
+
+        Route::post('/admin/store/task','AdminStoreTask')->name('admin.store.task');
+        Route::get('/admin/edit/task/{id}','AdminEditTask')->name('admin.edit.task');
+        Route::post('/admin/update/task','AdminUpdateTask')->name('admin.update.task');
+        Route::get('/admin/delete/task/{id}','AdminDeleteTask')->name('admin.delete.task');
+    });
+
 
 // SubCategory All Route
 Route::controller(CategoryController::class)->group(function(){
@@ -186,6 +244,7 @@ Route::controller(OrderController::class)->group(function(){
 // Admin Report All Route
 Route::controller(ReportController::class)->group(function(){
     Route::get('/report/view','ReportView')->name('report.view');
+    Route::get('/search/by/date','ReportView')->name('report');
     Route::post('/search/by/date','SearchByDate')->name('search.by.date');
     Route::post('/search/by/month','SearchByMonth')->name('search.by.month');
     Route::post('/search/by/year','SearchByYear')->name('search.by.year');
@@ -260,6 +319,8 @@ Route::controller(AdminController::class)->group(function(){
     Route::get('/edit/user/{id}','EditUser')->name('edit.user');
     Route::post('/update/admin/{id}','UpdateAdmin')->name('update.admin');
     Route::post('/update/instructor/{id}','UpdateInstructor')->name('update.instructor');
+    Route::post('admin/reset/user/{id}','AdminResetUserPassword')->name('admin.reset.user.password');
+    Route::get('admin/reset/user/{id}','AdminResetUser')->name('admin.reset.user');
     Route::post('/update/user/{id}','UpdateUser')->name('update.user');
     Route::get('/delete/admin/{id}','DeleteAdmin')->name('delete.admin');
 });
@@ -325,6 +386,29 @@ Route::controller(CourseController::class)->group(function(){
     Route::get('/delete/course/{id}','DeleteCourse')->name('delete.course');
     Route::post('/update/course/status','UpdateCourseStatus')->name('update.course.status');
 });
+
+
+// Task All Task Route
+    Route::controller(TaskController::class)->group(function(){
+        Route::get('/all/task','MyTask')->name('all.task');
+        Route::get('/add/task','AddTask')->name('add.task');
+
+        Route::post('/store/task','StoreTask')->name('store.task');
+        Route::get('/edit/task/{id}','EditTask')->name('edit.task');
+        Route::post('/update/task','UpdateTask')->name('update.task');
+        Route::get('/delete/task/{id}','DeleteTask')->name('delete.task');
+        Route::get('/report/generate','ReportGenerate')->name('report.generate');
+
+    });
+// File All Task Route
+
+    Route::controller(FileController::class)->group(function(){
+        Route::get('/all/file','AllFile')->name('all.file');
+        Route::get('/add/file','AddFile')->name('add.file');
+
+        Route::post('/store/file','StoreFile')->name('store.file');
+        Route::get('/delete/file/{id}','DeleteFile')->name('delete.file');
+    });
 
 
 // Course Section and Lecture All Route

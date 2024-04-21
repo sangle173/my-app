@@ -4,7 +4,7 @@
 
 <div class="page-content">
     <!--breadcrumb-->
-    <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3"> 
+    <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
@@ -14,32 +14,36 @@
                 </ol>
             </nav>
         </div>
-         
+
     </div>
     <!--end breadcrumb-->
- 
+
     <div class="card">
         <div class="card-body p-4">
-            
+
             <div class="row">
                 <div class="col-md-4">
 
                     <form id="myForm" action="{{ route('search.by.date') }}" method="post" class="row g-3" enctype="multipart/form-data">
                         @csrf
-        
-                        <div class="form-group col-md-12">
-                            <label for="input1" class="form-label">Search By Date</label>
-                            <input type="date" name="date" class="form-control" id="input1"  >
-                        </div> 
-                     
+
+                        <div class="form-group col-md-6">
+                            <label for="input1" class="form-label">Search Start Date</label>
+                            <input type="date" name="start_date" class="form-control" id="input1"  >
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="input1" class="form-label">Search End Date</label>
+                            <input type="date" name="end_date" class="form-control" id="input1"  >
+                        </div>
+
                         <div class="col-md-12">
                             <div class="d-md-flex d-grid align-items-center gap-3">
                   <button type="submit" class="btn btn-primary px-4">Save Changes</button>
-                              
+
                             </div>
                         </div>
                     </form>
-        
+
 
                 </div>
 
@@ -65,7 +69,7 @@
                 <option value="November">November</option>
                 <option value="December">December</option>
             </select>
-        </div> 
+        </div>
 
         <div class="form-group col-md-12">
             <label for="input1" class="form-label">Search By Year</label>
@@ -76,12 +80,12 @@
                 <option value="2024">2024</option>
                 <option value="2025">2025</option>
             </select>
-        </div> 
-        
+        </div>
+
         <div class="col-md-12">
             <div class="d-md-flex d-grid align-items-center gap-3">
     <button type="submit" class="btn btn-primary px-4">Save Changes</button>
-                
+
             </div>
         </div>
     </form>
@@ -102,21 +106,21 @@
     <option value="2024">2024</option>
     <option value="2025">2025</option>
             </select>
-        </div> 
-        
+        </div>
+
         <div class="col-md-12">
             <div class="d-md-flex d-grid align-items-center gap-3">
     <button type="submit" class="btn btn-primary px-4">Save Changes</button>
-                
+
             </div>
         </div>
     </form>
 
                 </div>
 
-            </div> 
+            </div>
             {{-- // end row  --}}
-           
+
 
 
 
@@ -124,12 +128,12 @@
     </div>
 
 
-   
-   
+
+
 </div>
 
- 
- 
+
+
 
 
 @endsection

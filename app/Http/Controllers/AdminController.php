@@ -8,7 +8,6 @@ use App\Models\User;
 use App\Models\Course;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
 
 class AdminController extends Controller
 {
@@ -396,5 +395,27 @@ class AdminController extends Controller
         );
         return redirect()->back()->with($notification);
 
+    }// End Method
+
+    public function AdminResetUser($id){
+
+        $user = User::find($id);
+        return view('admin.backend.pages.admin.reset_user_password',compact('user'));
+
+    }// End Method
+
+    public function AdminResetUserPassword(Request $request,$id){
+        $request->validate([
+            'new_password' => 'required',
+        ]);
+        $user = User::find($id);
+        $user->password = $request->new_password;
+        $user->save();
+
+        $notification = array(
+            'message' => 'Reset mật khẩu học viên thành công',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('all.instructor')->with($notification);
     }// End Method
 }
