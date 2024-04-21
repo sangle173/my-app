@@ -87,18 +87,18 @@ class FileController extends Controller
 //    }// End Method
 //
 //
-//    public function DeleteTeam($id)
-//    {
-//
-//        $item = Team::find($id);
-//
-//        Team::find($id)->delete();
-//
-//        $notification = array(
-//            'message' => 'Team Deleted Successfully',
-//            'alert-type' => 'success'
-//        );
-//        return redirect()->back()->with($notification);
-//
-//    }// End Method
+    public function DeleteFile($id)
+    {
+
+//        $item = File::find($id);
+//        $file = $item->name;
+//        unlink($file);
+        File::find($id)->delete();
+        $notification = array(
+            'message' => 'File Deleted Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+
+    }// End Method
 }

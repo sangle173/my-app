@@ -44,7 +44,7 @@
             </li>
             <li>
                 <a href="{{ route('all.file') }}">
-                    <div class="parent-icon"><i class="text-primary lni lni-files"></i>
+                    <div class="parent-icon"><i class="text-info lni lni-files"></i>
                     </div>
                     <div class="menu-title">Transfer File</div>
                 </a>

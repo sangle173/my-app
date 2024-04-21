@@ -33,7 +33,7 @@
                             <th>#</th>
                             <th>File</th>
                             <th>Download</th>
-                            <th>Created at</th>
+                            <th>Uploaded at</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -42,14 +42,16 @@
                         @foreach ($files as $key=> $item)
                             <tr>
                                 <td>{{ $key+1 }}</td>
-                                <td>{{$item-> file_name}}</td>
+                                <td>
+                                    <a href="">{{$item-> name}}</a>
+                                    </td>
+                                <td>
+                                    <i class="lni lni-download" style="font-size: 1.5rem"></i>
+                                </td>
                                 <td>{{$item -> created_at -> format('d/m/Y H:i')}}</td>
                                 <td>
                                     @if(Auth::user()->id == $item -> instructor_id)
-                                        <a href="{{ route('edit.task',$item->id) }}" class="btn btn-info"
-                                           title="Chỉnh sửa"><i
-                                                class="lni lni-eraser"></i> </a>
-                                        <a href="{{ route('delete.task',$item->id) }}" class="btn btn-danger"
+                                        <a href="{{ route('delete.file',$item->id) }}" class="btn btn-danger"
                                            id="delete"
                                            title="Xóa"><i class="lni lni-trash"></i> </a>
                                     @endif
