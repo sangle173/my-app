@@ -35,13 +35,20 @@
                         </div>
                     @endif
                     <input type="hidden" name="instructor_id" value="{{ $currentInstructor->id }}">
-                    <input
-                        type="file"
-                        name="files[]"
-                        id="inputFile"
-                        multiple
-                        class="form-control @error('files') is-invalid @enderror">
-
+                    <div class="form-group col-md-12">
+                        <label for="team_id" class="form-label"><b></b> </label>
+                        <input
+                            type="file"
+                            name="files[]"
+                            id="inputFile"
+                            multiple
+                            class="form-control @error('files') is-invalid @enderror">
+                    </div>
+                    <br>
+                    <div class="form-group col-md-12">
+                        <label for="share" class="form-label"><b>Share File?</b> </label>
+                        <input type="checkbox" id="share" name="share" value="1">
+                    </div>
                     <div class="col-md-12">
                         <div class="d-md-flex d-grid align-items-center gap-3">
                             <button type="submit" class="btn btn-primary px-4">Upload Files</button>

@@ -18,7 +18,7 @@ class TaskController extends Controller
     //
     public function AllTask()
     {
-        $tasks = Task::all();
+        $tasks = Task::latest()->get();
         return view('instructor.index', compact('tasks'));
 
     }// End Method

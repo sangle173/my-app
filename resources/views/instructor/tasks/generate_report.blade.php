@@ -20,7 +20,8 @@
 
             <div class="ms-auto">
                 <div class="btn-group">
-                    <a href="mailto:?subject={{$sj}}{{$date}}&cc={{$cc}}" class="btn btn-primary float-end"><i class="bi bi-cloud-arrow-up"></i> Open Outlook</a>
+                    <a href="mailto:?subject={{$sj}}{{$date}}&cc={{$cc}}" class="btn btn-primary float-end"><i
+                            class="bi bi-cloud-arrow-up"></i> Open Outlook</a>
                 </div>
             </div>
         </div>
@@ -252,7 +253,13 @@
                                     @endforeach
                                 </div>
                             @endif
+                            @if(
+                           count(\App\Models\Task::whereDate('created_at', \Carbon\Carbon::today())-> where('team_id',$item -> id) -> where('working_status_id', 1) ->get()) !=0 ||
+                          count(\App\Models\Task::whereDate('created_at', \Carbon\Carbon::today())-> where('team_id',$item -> id) -> where('working_status_id', 2) ->get()) !=0 ||
+                           count(\App\Models\Task::whereDate('created_at', \Carbon\Carbon::today())-> where('team_id',$item -> id) -> where('action_id', 2) ->get()) !=0
+)
                                 <br>
+                            @endif
                             @endforeach
                             <br>
                             <div style="margin:0;"><font face="Calibri,sans-serif" size="2"><span

@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Exports\PermissionExport;
 use App\Exports\UserExport;
-use App\Imports\PermissionImport;
 use App\Imports\UserImport;
 use App\Models\Course;
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
@@ -30,7 +28,7 @@ class InstructorController extends Controller
         $request->session()->regenerateToken();
 
         $notification = array(
-            'message' => 'Đang xuất thành công',
+            'message' => 'Logout Successfully',
             'alert-type' => 'info'
         );
 
@@ -70,7 +68,7 @@ class InstructorController extends Controller
         $data->save();
 
         $notification = array(
-            'message' => 'Cập nhật thông tin giảng viên thành công',
+            'message' => 'Your Info is updated',
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
@@ -316,7 +314,7 @@ class InstructorController extends Controller
         $user->save();
 
         $notification = array(
-            'message' => 'Reset mật khẩu học viên thành công',
+            'message' => 'Reseted',
             'alert-type' => 'success'
         );
         return redirect()->route('instructor.all.user')->with($notification);

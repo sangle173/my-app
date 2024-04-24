@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\UserImport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Course;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdminController extends Controller
 {
@@ -417,5 +419,26 @@ class AdminController extends Controller
             'alert-type' => 'success'
         );
         return redirect()->route('all.instructor')->with($notification);
+    }// End Method
+
+    public function AdminImportTask(){
+
+        return view('admin.backend.tasks.import_task');
+
+    }// End Method
+
+    public function AdminImport(Request $request){
+        $request->validate([
+            'import_file' => 'required',
+        ]);
+
+        Excel::import(new UserImport, $request->file('import_file'));
+
+        $notification = array(
+            'message' => 'Import Task Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+
     }// End Method
 }

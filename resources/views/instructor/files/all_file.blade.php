@@ -43,10 +43,14 @@
                             <tr>
                                 <td>{{ $key+1 }}</td>
                                 <td>
-                                    <a href="">{{$item-> name}}</a>
+                                    <a href="{{  asset('uploads/'.$item-> name) }}" target="blank" title="Review Files">{{$item-> name}}</a>
                                     </td>
                                 <td>
-                                    <i class="lni lni-download" style="font-size: 1.5rem"></i>
+                                    <a title="download" download href="{{  asset('uploads/'.$item-> name) }}"
+                                       class="btn-lg btn-link text-primary text-decoration-none"
+                                       target="_blank" title="Download File">
+                                        <i class="lni lni-download" style="font-size: 1.5rem"></i>
+                                    </a>
                                 </td>
                                 <td>{{$item -> created_at -> format('d/m/Y H:i')}}</td>
                                 <td>

@@ -31,7 +31,7 @@
                 <a href="{{ route('all.task') }}">
                     <div class="parent-icon"><i class="text-success lni lni-bookmark"></i>
                     </div>
-                    <div class="menu-title">Your Task</div>
+                    <div class="menu-title">My Tasks</div>
                 </a>
             </li>
 
@@ -46,7 +46,14 @@
                 <a href="{{ route('all.file') }}">
                     <div class="parent-icon"><i class="text-info lni lni-files"></i>
                     </div>
-                    <div class="menu-title">Transfer File</div>
+                    <div class="menu-title">My Files</div>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('share.file') }}">
+                    <div class="parent-icon"><i class="text-info lni lni-share"></i>
+                    </div>
+                    <div class="menu-title">Team Share Files</div>
                 </a>
             </li>
             <li>

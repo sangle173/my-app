@@ -55,13 +55,14 @@
                                         <span class="badge badge-pill bg-success">Active Now</span>
                                     @else
                                         <span
-                                            class="badge badge-pill bg-danger">{{ Carbon\Carbon::parse($item->last_seen)->diffForHumans() }} </span>
+                                            class="badge badge-pill bg-danger">{{ Carbon\Carbon::parse($item->last_seen) -> timezone('Asia/Ho_Chi_Minh')->diffForHumans() }} </span>
 
                                     @endif
                                 </td>
                                 <td>
 
-                                    <a href="{{ route('edit.instructor',$item->id) }}" class="btn btn-info px-5">Edit </a>
+                                    <a href="{{ route('edit.instructor',$item->id) }}"
+                                       class="btn btn-info px-5">Edit </a>
                                     <a href="{{ route('admin.reset.user',$item->id) }}" class="btn btn-success"
                                        title="Reset Password">
                                         <i class='bx bx-reset'></i>

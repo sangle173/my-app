@@ -198,6 +198,13 @@ Route::controller(AdminController::class)->group(function(){
     Route::get('/admin/course/details/{id}','AdminCourseDetails')->name('admin.course.details');
 });
 
+// Admin Import/Export All Route
+    Route::controller(AdminController::class)->group(function(){
+        Route::get('admin/import/task','AdminImportTask')->name('admin.import.task');
+//        Route::get('instructor/export','Export')->name('instructor.export');
+        Route::post('admin/import','AdminImport')->name('admin.import');
+    });
+
 
 // Admin Coupon All Route
 Route::controller(CouponController::class)->group(function(){
@@ -248,7 +255,6 @@ Route::controller(ReportController::class)->group(function(){
     Route::post('/search/by/date','SearchByDate')->name('search.by.date');
     Route::post('/search/by/month','SearchByMonth')->name('search.by.month');
     Route::post('/search/by/year','SearchByYear')->name('search.by.year');
-
 });
 
 // Admin Review All Route
@@ -404,6 +410,7 @@ Route::controller(CourseController::class)->group(function(){
 
     Route::controller(FileController::class)->group(function(){
         Route::get('/all/file','AllFile')->name('all.file');
+        Route::get('/share/file','ShareFile')->name('share.file');
         Route::get('/add/file','AddFile')->name('add.file');
 
         Route::post('/store/file','StoreFile')->name('store.file');

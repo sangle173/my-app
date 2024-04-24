@@ -15,9 +15,15 @@ class FileController extends Controller
     {
 
         $id = Auth::user()->id;
-        $files = File::where('instructor_id', $id)->orderBy('id', 'desc')->get();
+        $files = File::where('instructor_id', $id) ->where('share',0) ->orderBy('id', 'desc')->get();
         return view('instructor.files.all_file', compact('files'));
 
+    }// End Method
+
+    public function ShareFile()
+    {
+        $files = File::where('share', 1)->orderBy('id', 'desc')->get();
+        return view('instructor.files.share_file', compact('files'));
     }// End Method
 
     public function AddFile()
@@ -37,22 +43,34 @@ class FileController extends Controller
         if ($request->file('files')){
             foreach($request->file('files') as $key => $file)
             {
-                $fileName = time().'.'.$file->getClientOriginalExtension();
+                $fileName = time().'.'.$file -> getClientOriginalName();
                 $file->move(public_path('uploads'), $fileName);
                 $files[]['name'] = $fileName;
-//                $files[]['instructor_id'] = $request -> instructor_id ;
             }
         }
-//        dd($files);
 
-        foreach ($files as $key => $file) {
-            $file_id = File::insertGetId([
-                'name' => $file['name'],
-                'instructor_id' => $request-> instructor_id,
-                'file_slug' => strtolower(str_replace(' ', '-', $file['name'])),
-                'created_at' => Carbon::now('Asia/Ho_Chi_Minh'),
-            ]);
+        if ($request-> share == 1) {
+            foreach ($files as $key => $file) {
+                $file_id = File::insertGetId([
+                    'name' => $file['name'],
+                    'instructor_id' => $request-> instructor_id,
+                    'file_slug' => strtolower(str_replace(' ', '-', $file['name'])),
+                    'share' => 1,
+                    'created_at' => Carbon::now('Asia/Ho_Chi_Minh'),
+                ]);
+            }
+        } else {
+            foreach ($files as $key => $file) {
+                $file_id = File::insertGetId([
+                    'name' => $file['name'],
+                    'instructor_id' => $request-> instructor_id,
+                    'file_slug' => strtolower(str_replace(' ', '-', $file['name'])),
+                    'share' => 0,
+                    'created_at' => Carbon::now('Asia/Ho_Chi_Minh'),
+                ]);
+            }
         }
+
 
         $notification = array(
             'message' => 'File Inserted Successfully',

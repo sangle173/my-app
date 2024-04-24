@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('summary')->nullable();
             $table->integer('working_status_id')->nullable();
             $table->integer('ticket_status_id')->nullable();
-            $table->integer('instructor_id');
+            $table->integer('instructor_id')->nullable();
             $table->integer('tester_1_id')->nullable();
             $table->integer('tester_2_id')->nullable();
             $table->string('task_name_slug')->nullable();

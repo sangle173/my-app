@@ -49,32 +49,34 @@
                                 <td>{{ $key+1 }}</td>
                                 <td>
                                     <span class="badge"
-                                          style="background-color: {{ \App\Models\Team::find($item -> team_id) -> color }};color: black">{{ \App\Models\Team::find($item -> team_id) -> team_name }}</span>
+                                          style="background-color: {{ \App\Models\Team::find($item -> team_id) != null? \App\Models\Team::find($item -> team_id) -> color: 'black' }}; color: black">{{ \App\Models\Team::find($item -> team_id) !=null ? \App\Models\Team::find($item -> team_id) -> team_name: '' }}</span>
                                 </td>
                                 <td>
-                                    <i style="font-size: 1.2rem;color: {{\App\Models\Action::find($item -> action_id) -> color}}" class="bx bxs-{{\App\Models\Action::find($item -> action_id) -> icon}}"></i>
+                                    <i style="font-size: 1.2rem;color: {{\App\Models\Action::find($item -> action_id) !=null? \App\Models\Action::find($item -> action_id)-> color: 'black'}}"
+                                       class="bx bxs-{{\App\Models\Action::find($item -> action_id) != null?\App\Models\Action::find($item -> action_id) -> icon: ''}}"></i>
                                 </td>
                                 <td width="25%">
                                     <a href="https://jira.sonos.com/browse/{{$item -> jira_id}}">{{$item -> jira_id}} </a>
-                                     - {{$item -> summary}}
+                                    - {{$item -> summary}}
                                 </td>
                                 <td>
                                     <span class="badge"
-                                          style="background-color: {{ \App\Models\WorkingStatus::find($item -> working_status_id) -> color }}">{{ \App\Models\WorkingStatus::find($item -> working_status_id) -> working_status_name }}</span>
+                                          style="background-color: {{ \App\Models\WorkingStatus::find($item -> working_status_id)!=null? \App\Models\WorkingStatus::find($item -> working_status_id) -> color: 'black' }}">{{ \App\Models\WorkingStatus::find($item -> working_status_id)!= null? \App\Models\WorkingStatus::find($item -> working_status_id) -> working_status_name: '' }}</span>
                                 </td>
                                 <td>
                                     <span class="badge"
-                                          style="background-color: {{ \App\Models\TicketStatus::find($item -> ticket_status_id) -> color }}">{{ \App\Models\TicketStatus::find($item -> ticket_status_id) -> ticket_status_name }}</span>
+                                          style="background-color: {{ \App\Models\TicketStatus::find($item -> ticket_status_id) != null? \App\Models\TicketStatus::find($item -> ticket_status_id)-> color: 'black'}}">
+                                        {{ \App\Models\TicketStatus::find($item -> ticket_status_id) != null ? \App\Models\TicketStatus::find($item -> ticket_status_id) -> ticket_status_name: '' }}</span>
                                 </td>
-                                <td>{{ \App\Models\User::find($item -> instructor_id) -> name }}</td>
+                                <td>{{ \App\Models\User::find($item -> instructor_id) !=null ? \App\Models\User::find($item -> instructor_id) -> name: '' }}</td>
                                 <td>
                                     @if($item -> tester_1_id)
-                                        {{ \App\Models\User::find($item -> tester_1_id) -> name }}
+                                        {{ \App\Models\User::find($item -> tester_1_id) !=null? \App\Models\User::find($item -> tester_1_id) -> name: ''}}
                                     @endif
                                 </td>
                                 <td>
                                     @if($item -> tester_2_id)
-                                        {{ \App\Models\User::find($item -> tester_2_id) -> name }}
+                                        {{ \App\Models\User::find($item -> tester_2_id) !=null?\App\Models\User::find($item -> tester_2_id) -> name: '' }}
                                     @endif
                                 </td>
                                 <td>{{$item -> created_at -> format('d/m/Y H:i')}}</td>

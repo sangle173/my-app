@@ -1,13 +1,4 @@
-@php
-    use App\Models\Action;use Illuminate\Support\Carbon;
-    $id = Auth::user()->id;
-    $instructorId = App\Models\User::find($id);
-    $status = $instructorId->status;
-    $name = $instructorId->name;
-    $alluser = App\Models\User::where('role','user')->get();
-    $taskToday = App\Models\Task::whereDate('created_at', Carbon::today())->get();
-    $actions = Action::all();
-@endphp
+
 <section class="feature-area pb-90px">
     <div class="container">
         <div class="row feature-content-wrap">
