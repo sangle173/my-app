@@ -33,6 +33,7 @@
                             <th>#</th>
                             <th>File</th>
                             <th>Download</th>
+                            <th>Share</th>
                             <th>Uploaded at</th>
                             <th>Action</th>
                         </tr>
@@ -51,6 +52,11 @@
                                        target="_blank" title="Download File">
                                         <i class="lni lni-download" style="font-size: 1.5rem"></i>
                                     </a>
+                                </td>
+                                <td>
+                                    <div class="form-check-danger form-check form-switch">
+                                        <input class="form-check-input status-toggle large-checkbox" title="Share File?" type="checkbox" id="flexSwitchCheckCheckedDanger" data-file-id="{{ $item->id }}" {{ $item->share ? 'checked' : ''}}  >
+                                    </div>
                                 </td>
                                 <td>{{$item -> created_at -> format('d/m/Y H:i')}}</td>
                                 <td>
@@ -76,16 +82,16 @@
     <script>
         $(document).ready(function () {
             $('.status-toggle').on('change', function () {
-                var courseId = $(this).data('course-id');
+                var fileId = $(this).data('file-id');
                 var isChecked = $(this).is(':checked');
 
                 // send an ajax request to update status
 
                 $.ajax({
-                    url: "{{ route('update.course.status') }}",
+                    url: "{{ route('update.file.status') }}",
                     method: "POST",
                     data: {
-                        course_id: courseId,
+                        file_id: fileId,
                         is_checked: isChecked ? 1 : 0,
                         _token: "{{ csrf_token() }}"
                     },

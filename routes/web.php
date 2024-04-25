@@ -415,6 +415,7 @@ Route::controller(CourseController::class)->group(function(){
 
         Route::post('/store/file','StoreFile')->name('store.file');
         Route::get('/delete/file/{id}','DeleteFile')->name('delete.file');
+        Route::post('/update/file/status','UpdateFileStatus')->name('update.file.status');
     });
 
 

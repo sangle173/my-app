@@ -15,14 +15,14 @@ class FileController extends Controller
     {
 
         $id = Auth::user()->id;
-        $files = File::where('instructor_id', $id) ->where('share',0) ->orderBy('id', 'desc')->get();
+        $files = File::where('instructor_id', $id) ->orderBy('id', 'desc')->get();
         return view('instructor.files.all_file', compact('files'));
 
     }// End Method
 
     public function ShareFile()
     {
-        $files = File::where('share', 1)->orderBy('id', 'desc')->get();
+        $files = File::where('share', 1)->orderBy('updated_at', 'desc')->get();
         return view('instructor.files.share_file', compact('files'));
     }// End Method
 
@@ -118,5 +118,19 @@ class FileController extends Controller
         );
         return redirect()->back()->with($notification);
 
+    }// End Method
+
+    public function UpdateFileStatus(Request $request){
+
+        $fileId = $request->input('file_id');
+        $isChecked = $request->input('is_checked',0);
+
+        $file = File::find($fileId);
+        if ($file) {
+            $file->share = $isChecked;
+            $file->save();
+        }
+
+        return response()->json(['message' => 'Update Share File status Successfully!']);
     }// End Method
 }
