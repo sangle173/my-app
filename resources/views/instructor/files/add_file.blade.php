@@ -46,18 +46,31 @@
                     </div>
                     <br>
                     <div class="form-group col-md-12">
-                        <label for="share" class="form-label"><b>Share File?</b> </label>
+                        <label for="share" class="form-label"><b>Share File? </b> </label>
                         <input type="checkbox" id="share" name="share" value="1">
                     </div>
                     <div class="col-md-12">
                         <div class="d-md-flex d-grid align-items-center gap-3">
-                            <button type="submit" class="btn btn-primary px-4">Upload Files</button>
+                            <input type="submit" class="btn btn-primary px-4" value="Upload Files" disabled>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
 
-
     </div>
+    <script>
+        $(document).ready(
+            function(){
+                $('input:file').change(
+                    function(){
+                        if ($(this).val()) {
+                            $('input:submit').attr('disabled',false);
+                            // or, as has been pointed out elsewhere:
+                            // $('input:submit').removeAttr('disabled');
+                        }
+                    }
+                );
+            });
+    </script>
 @endsection
