@@ -11,6 +11,9 @@
                         <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">My Files Upload</li>
+                        <li class="breadcrumb-item " aria-current="page">
+                            <a href="{{  asset('upload/QR.png') }}" target="blank" title="QR to get the url">QR Code</a>
+                        </li>
                     </ol>
                 </nav>
             </div>
