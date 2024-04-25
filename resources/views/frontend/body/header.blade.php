@@ -2,7 +2,7 @@
     $setting = App\Models\SiteSetting::find(1);
 @endphp
 
-<header class="header-menu-area bg-white">
+<header class="header-menu-area bg-light">
     <div class="header-top pr-150px pl-150px border-bottom border-bottom-gray py-1">
         <div class="container-fluid">
             <div class="row align-items-center">
@@ -12,7 +12,7 @@
                             <li class="d-flex align-items-center pr-3 mr-3 border-right border-right-gray"><i
                                     class="la la-phone mr-1"></i><a href="tel:00123456789"> 0905 123 346</a></li>
                             <li class="d-flex align-items-center"><i class="la la-envelope-o mr-1"></i><a
-                                    href="mailto: luyenthicongchuc.ad@gmail.com">sonos-qateam</a></li>
+                                    href="mailto: sang.le@agest.vn">sonos-qateam</a></li>
                         </ul>
                     </div><!-- end header-widget -->
                 </div><!-- end col-lg-6 -->
@@ -65,7 +65,7 @@
             </div><!-- end row -->
         </div><!-- end container-fluid -->
     </div><!-- end header-top -->
-    <div class="header-menu-content pr-150px pl-150px bg-white">
+    <div class="header-menu-content pr-150px pl-150px" style="background: #bac0c6">
         <div class="container-fluid">
             <div class="main-menu-content">
                 <a href="#" class="down-button"><i class="la la-angle-down"></i></a>

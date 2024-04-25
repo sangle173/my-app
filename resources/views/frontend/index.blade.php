@@ -105,7 +105,7 @@ Sonos Team Dashboard
 <!--================================
          START HERO AREA
 =================================-->
-@include('frontend.home.hero-area')
+@include('frontend.dashboard.login')
 <!--================================
         END HERO AREA
 =================================-->
@@ -113,7 +113,7 @@ Sonos Team Dashboard
 <!--======================================
         START FEATURE AREA
  ======================================-->
-@include('frontend.home.feature-area')
+{{--@include('frontend.home.feature-area')--}}
 <!--======================================
        END FEATURE AREA
 ======================================-->

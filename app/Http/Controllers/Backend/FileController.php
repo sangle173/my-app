@@ -43,7 +43,7 @@ class FileController extends Controller
         if ($request->file('files')){
             foreach($request->file('files') as $key => $file)
             {
-                $fileName = time().'.'.$file -> getClientOriginalName();
+                $fileName = Carbon::now('Asia/Ho_Chi_Minh').'_'.$file -> getClientOriginalName();
                 $file->move(public_path('uploads'), $fileName);
                 $files[]['name'] = $fileName;
             }
