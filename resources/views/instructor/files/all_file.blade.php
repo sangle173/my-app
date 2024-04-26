@@ -24,7 +24,8 @@
         <!--end breadcrumb-->
         <div class="row">
             <div class="btn-group">
-                <a href="{{ route('add.file') }}" class="btn btn-primary px-5"><i class="bx bx-message-add"></i>Upload File</a>
+                <a href="{{ route('add.file') }}" class="btn btn-primary px-5"><i class="bx bx-message-add"></i>Upload
+                    File</a>
             </div>
         </div>
         <div class="card mt-3">
@@ -36,8 +37,7 @@
                             <th>#</th>
                             <th>File</th>
                             <th>Download</th>
-                            <th>Share</th>
-                            <th>Uploaded by</th>
+                            <th>Share status</th>
                             <th>Uploaded at</th>
                             <th>Action</th>
                         </tr>
@@ -48,8 +48,9 @@
                             <tr>
                                 <td>{{ $key+1 }}</td>
                                 <td>
-                                    <a href="{{  asset('uploads/'.$item-> name) }}" target="blank" title="Review Files">{{substr($item-> name,11)}}</a>
-                                    </td>
+                                    <a href="{{  asset('uploads/'.$item-> name) }}" target="blank"
+                                       title="Review Files">{{substr($item-> name,11)}}</a>
+                                </td>
                                 <td>
                                     <a title="download" download href="{{  asset('uploads/'.$item-> name) }}"
                                        class="btn-lg btn-link text-primary text-decoration-none"
@@ -59,7 +60,9 @@
                                 </td>
                                 <td>
                                     <div class="form-check-danger form-check form-switch">
-                                        <input class="form-check-input status-toggle large-checkbox" title="Share File?" type="checkbox" id="flexSwitchCheckCheckedDanger" data-file-id="{{ $item->id }}" {{ $item->share ? 'checked' : ''}}  >
+                                        <input class="form-check-input status-toggle large-checkbox" title="Share File?"
+                                               type="checkbox" id="flexSwitchCheckCheckedDanger"
+                                               data-file-id="{{ $item->id }}" {{ $item->share ? 'checked' : ''}} >
                                     </div>
                                 </td>
                                 <td>{{$item -> created_at -> format('d/m/Y H:i')}}</td>
@@ -73,7 +76,6 @@
                             </tr>
                         @endforeach
                         </tbody>
-
                     </table>
                 </div>
             </div>
