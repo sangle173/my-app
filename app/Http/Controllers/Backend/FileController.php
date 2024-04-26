@@ -22,7 +22,7 @@ class FileController extends Controller
 
     public function ShareFile()
     {
-        $files = File::where('share', 1)->orderBy('updated_at', 'desc')->get();
+        $files = File::where('share', 1)->orderBy('created_at', 'desc')->get();
         return view('instructor.files.share_file', compact('files'));
     }// End Method
 

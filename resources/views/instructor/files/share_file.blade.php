@@ -27,6 +27,7 @@
                             <th>#</th>
                             <th>File</th>
                             <th>Download</th>
+                            <th>Uploaded by</th>
                             <th>Uploaded at</th>
                             <th>Action</th>
                         </tr>
@@ -37,7 +38,7 @@
                             <tr>
                                 <td>{{ $key+1 }}</td>
                                 <td>
-                                    <a href="{{  asset('uploads/'.$item-> name) }}" target="blank" title="Review Files">{{$item-> name}}</a>
+                                    <a href="{{  asset('uploads/'.$item-> name) }}" target="blank" title="Review Files">{{substr($item-> name,11)}}</a>
                                     </td>
                                 <td>
                                     <a title="download" download href="{{  asset('uploads/'.$item-> name) }}"
@@ -45,6 +46,9 @@
                                        target="_blank" title="Download File">
                                         <i class="lni lni-download" style="font-size: 1.5rem"></i>
                                     </a>
+                                </td>
+                                <td>
+                                    {{\App\Models\User::find($item -> instructor_id) -> name}}
                                 </td>
                                 <td>{{$item -> created_at -> format('d/m/Y H:i')}}</td>
                                 <td>

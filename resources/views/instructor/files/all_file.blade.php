@@ -37,6 +37,7 @@
                             <th>File</th>
                             <th>Download</th>
                             <th>Share</th>
+                            <th>Uploaded by</th>
                             <th>Uploaded at</th>
                             <th>Action</th>
                         </tr>
@@ -47,7 +48,7 @@
                             <tr>
                                 <td>{{ $key+1 }}</td>
                                 <td>
-                                    <a href="{{  asset('uploads/'.$item-> name) }}" target="blank" title="Review Files">{{$item-> name}}</a>
+                                    <a href="{{  asset('uploads/'.$item-> name) }}" target="blank" title="Review Files">{{substr($item-> name,11)}}</a>
                                     </td>
                                 <td>
                                     <a title="download" download href="{{  asset('uploads/'.$item-> name) }}"
