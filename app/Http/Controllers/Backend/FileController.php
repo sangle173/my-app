@@ -77,7 +77,6 @@ class FileController extends Controller
             'alert-type' => 'success'
         );
         return redirect()->route('all.file')->with($notification);
-
     }// End Method
 //
 //    public function EditTeam($id)

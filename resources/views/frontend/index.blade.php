@@ -56,7 +56,7 @@ Sonos Team Dashboard
         END TESTIMONIAL AREA
 =================================-->
 
-{{--<div class="section-block"></div>--}}
+<div class="section-block"></div>
 <!-- ================================
        START BLOG AREA
 ================================= -->
@@ -73,17 +73,17 @@ Sonos Team Dashboard
         END ABOUT AREA
 ======================================-->
 
-<div class="section-block"></div>
+{{--<div class="section-block"></div>--}}
 
 <!--======================================
         START REGISTER AREA
 ======================================-->
-{{--@include('frontend.home.register-area')--}}
+@include('frontend.home.register-area')
 <!--======================================
         END REGISTER AREA
 ======================================-->
 
-{{--<div class="section-block"></div>--}}
+<div class="section-block"></div>
 
 <!-- ================================
        START CLIENT-LOGO AREA
@@ -105,7 +105,7 @@ Sonos Team Dashboard
 <!--================================
          START HERO AREA
 =================================-->
-@include('frontend.dashboard.login')
+{{--@include('frontend.home.hero-area')--}}
 <!--================================
         END HERO AREA
 =================================-->

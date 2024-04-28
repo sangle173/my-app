@@ -3,17 +3,14 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Category;
-use App\Models\SubCategory;
 use App\Models\Course;
-use App\Models\User;
 use App\Models\Course_goal;
-use App\Models\CourseSection;
-use App\Models\CourseLecture;
-use Intervention\Image\Facades\Image;
-use Illuminate\Support\Facades\Auth;
+use App\Models\File;
+use App\Models\SubCategory;
+use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
@@ -68,6 +65,63 @@ class IndexController extends Controller
 
     }// End Method
 
+    public function UserUploadFiles($id){
+        $instructor = User::find($id);
+        return view('frontend.home.register-area',compact('instructor'));
+    }// End Method
 
+    public function UserUploadFileGet(Request $request){
+        $id = $request -> id;
+        $instructor = User::find($id);
+        return view('frontend.add_file',compact('instructor'));
+    }// End Method
+
+    public function UserStoreFile(Request $request)
+    {
+
+        $request->validate([
+            'files' => 'required',
+        ]);
+
+        $files = [];
+        if ($request->file('files')){
+            foreach($request->file('files') as $key => $file)
+            {
+                $fileName = time().'.'.$file -> getClientOriginalName();
+                $file->move(public_path('uploads'), $fileName);
+                $files[]['name'] = $fileName;
+            }
+        }
+
+        if ($request-> share == 1) {
+            foreach ($files as $key => $file) {
+                $file_id = File::insertGetId([
+                    'name' => $file['name'],
+                    'instructor_id' => $request-> instructor_id,
+                    'file_slug' => strtolower(str_replace(' ', '-', $file['name'])),
+                    'share' => 1,
+                    'created_at' => Carbon::now('Asia/Ho_Chi_Minh'),
+                ]);
+            }
+        } else {
+            foreach ($files as $key => $file) {
+                $file_id = File::insertGetId([
+                    'name' => $file['name'],
+                    'instructor_id' => $request-> instructor_id,
+                    'file_slug' => strtolower(str_replace(' ', '-', $file['name'])),
+                    'share' => 0,
+                    'created_at' => Carbon::now('Asia/Ho_Chi_Minh'),
+                ]);
+            }
+        }
+
+
+
+        $notification = array(
+            'message' => 'File Inserted Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }// End Method
 
 }

@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     public function Index(){
-        return view('frontend.index');
+        $instructors = User::where('role','instructor')->latest()->get();
+        return view('frontend.index',compact('instructors'));
     } // End Method
 
     public function UserProfile(){
@@ -24,11 +25,6 @@ class UserController extends Controller
 
         $id = Auth::user()->id;
         $data = User::find($id);
-//        $data->name = $request->name;
-//        $data->username = $request->username;
-//        $data->email = $request->email;
-//        $data->phone = $request->phone;
-//        $data->address = $request->address;
 
         if ($request->file('photo')) {
            $file = $request->file('photo');

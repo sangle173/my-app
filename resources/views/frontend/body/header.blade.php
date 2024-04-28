@@ -148,9 +148,6 @@
             <li>
                 <a href="{{url('/')}}">Homepage</a>
             </li>
-            <li>
-                <a href="{{ route('blog') }}">Post</a>
-            </li>
         </ul>
         <ul class="generic-list-item d-flex flex-wrap align-items-center fs-14 border-left border-left-gray pl-3 ml-3">
 
