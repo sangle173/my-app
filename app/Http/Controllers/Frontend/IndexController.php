@@ -71,8 +71,10 @@ class IndexController extends Controller
     }// End Method
 
     public function UserUploadFileGet(Request $request){
-        $id = $request -> id;
-        $instructor = User::find($id);
+        $request->validate([
+            'tester_id' => 'required',
+        ]);
+        $instructor = User::find($request -> tester_id);
         return view('frontend.add_file',compact('instructor'));
     }// End Method
 

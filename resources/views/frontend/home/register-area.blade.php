@@ -7,10 +7,20 @@
                         <h3 class="fs-24 font-weight-semi-bold pb-2">Upload Your Files</h3>
                         <div class="divider"><span></span></div>
                         <form id="myForm" action="{{ route('user.uploadfile') }}" method="get" class="row g-3">
+                            @csrf
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <div class="form-group col-md-12">
-                                <label class="form-label">Select QA</label>
+                                <label class="form-label" for="tester_id">Select QA</label>
                                 <div class="form-group">
-                                    <select name="id" id="tester_1_id" class="form-control form--control mb-3"
+                                    <select name="tester_id" id="tester_id" class="form-control form--control mb-3"
                                             aria-label="Default select example">
                                         <option selected="" disabled>Select Tester</option>
                                         @foreach ($instructors as $instructor)

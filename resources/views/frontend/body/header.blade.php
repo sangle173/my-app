@@ -52,7 +52,7 @@
                             @else
 
                                 <li class="d-flex align-items-center pr-3 mr-3 border-right border-right-gray"><i
-                                        class="la la-sign-in mr-1"></i><a href="{{ route('login') }}"> Login</a>
+                                        class="la la-sign-in mr-1"></i><a href="{{ route('instructor.login') }}"> Login</a>
                                 </li>
                                 {{--    <li class="d-flex align-items-center"><i class="la la-user mr-1"></i><a href="{{ route('register') }}"> Đăng ký</a></li>--}}
 
@@ -161,7 +161,7 @@
             @else
 
                 <li class="d-flex align-items-center pr-3 mr-3 border-right border-right-gray"><i
-                        class="la la-sign-in mr-1"></i><a href="{{ route('login') }}"> Login</a>
+                        class="la la-sign-in mr-1"></i><a href="{{ route('instructor.login') }}"> Login</a>
                 </li>
                 {{--    <li class="d-flex align-items-center"><i class="la la-user mr-1"></i><a href="{{ route('register') }}"> Đăng ký</a></li>--}}
 
