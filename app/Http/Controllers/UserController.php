@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -11,7 +12,8 @@ class UserController extends Controller
 {
     public function Index(){
         $instructors = User::where('role','instructor')->latest()->get();
-        return view('frontend.index',compact('instructors'));
+        $files = File::where('share', 1)->orderBy('created_at', 'desc')->get();
+        return view('frontend.index',compact('instructors', 'files'));
     } // End Method
 
     public function UserProfile(){
