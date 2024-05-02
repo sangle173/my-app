@@ -36,7 +36,7 @@
             </li>
 
             <li>
-                <a href="{{ route('report.generate') }}">
+                <a href="http://192.168.188.147/angular-example/browser/">
                     <div class="parent-icon"><i class="text-primary lni lni-medall-alt"></i>
                     </div>
                     <div class="menu-title">Report</div>
