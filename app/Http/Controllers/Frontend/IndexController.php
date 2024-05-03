@@ -126,4 +126,11 @@ class IndexController extends Controller
         return redirect()->back()->with($notification);
     }// End Method
 
+    public function PlayerManager(Request $request){
+        $request->validate([
+            'player_ip' => 'required',
+        ]);
+        $playerip = $request -> player_ip;
+        return view('frontend.player_manager',compact('playerip'));
+    }// End Method
 }

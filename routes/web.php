@@ -492,6 +492,7 @@ Route::get('/category/{id}/{slug}', [IndexController::class, 'CategoryCourse']);
 Route::get('/subcategory/{id}/{slug}', [IndexController::class, 'SubCategoryCourse']);
 Route::get('/instructor/details/{id}', [IndexController::class, 'InstructorDetails'])->name('instructor.details');
 Route::get('/user/upload/file/{id}', [IndexController::class, 'UserUploadFiles'])->name('user.upload.files');
+Route::get('/player/manager', [IndexController::class, 'PlayerManager'])->name('player.manager');
 Route::get('/user/upload/file', [IndexController::class, 'UserUploadFileGet'])->name('user.uploadfile');
 Route::post('/user/upload/file/post', [IndexController::class, 'UserStoreFile'])->name('user.uploadfile.post');
 

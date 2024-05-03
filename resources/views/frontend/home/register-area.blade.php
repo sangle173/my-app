@@ -35,6 +35,29 @@
                                         class="la la-arrow-right icon ml-1"></i></button>
                             </div><!-- end input-box -->
                         </form>
+
+                        <form id="myForm" action="{{ route('player.manager') }}" method="get" class="row g-3">
+                            @csrf
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            <div class="form-group col-md-12">
+                                <label class="form-label" for="tester_id">Enter Player IP</label>
+                                <div class="form-group">
+                                    <input type="text" name="player_ip" value="192.168.120." class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <button class="btn theme-btn" type="submit">Player Management <i
+                                        class="la la-arrow-right icon ml-1"></i></button>
+                            </div><!-- end input-box -->
+                        </form>
                     </div><!-- end card-body -->
                 </div><!-- end card -->
             </div><!-- end col-lg-5 -->
