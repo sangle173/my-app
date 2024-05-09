@@ -38,30 +38,34 @@
                     </form>
                     <hr>
                     <div class="row">
-                        <div class="col-lg-6">
-                            <iframe src="http://{{$playerip}}:1400/reset" title="Reset" frameborder="0"></iframe>
-                            <iframe src="http://{{$playerip}}:1400/reboot" title="Reset" frameborder="0"></iframe>
+                        <div class="col-lg-5">
+                            <h6>Player Info</h6>
                             <hr>
-                            <iframe src="http://{{$playerip}}:1400/setstring" title="Reset" width="100%" height="400px"
-                                    frameborder="0"></iframe>
-
-                        </div>
-
-                        <div class="col-lg-4">
                             <iframe src="http://{{$playerip}}:1400/status/zp" title="Reset" frameborder="0" width="100%"
                                     height="1000px"></iframe>
                         </div>
+                        <div class="col-lg-5">
+                            <h6>System Players</h6>
+                            <hr>
+                            {{--                            <iframe src="http://{{$playerip}}:1400/reset" title="Reset" frameborder="0"></iframe>--}}
+{{--                            <iframe src="http://{{$playerip}}:1400/reboot" title="Reset" frameborder="0"></iframe>--}}
+{{--                            <hr>--}}
+{{--                            <iframe src="http://{{$playerip}}:1400/setstring" title="Reset" width="100%" height="400px"--}}
+{{--                                    frameborder="0"></iframe>--}}
+                            <iframe src="http://{{$playerip}}:1400/support/review" title="Reset" frameborder="0" width="100%"
+                                    height="1000px"></iframe>
+                        </div>
+
+
                         <div class="col-lg-2">
+                            <h6>Actions</h6>
+                            <hr>
                             <ul>
                                 <li class="list-group-item">
                                     <a href="http://{{$playerip}}:1400/reset" target="_blank">Reset</a>
                                 </li>
                                 <li class="list-group-item">
                                     <a href="http://{{$playerip}}:1400/reboot" target="_blank">Reboot</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="http://{{$playerip}}:1400/status/zp"
-                                       target="_blank">Player Info</a>
                                 </li>
                                 <li class="list-group-item">
                                     <a href="http://{{$playerip}}:1400/status" target="_blank">Status</a>
