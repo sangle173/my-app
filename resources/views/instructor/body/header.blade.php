@@ -3,7 +3,10 @@
         <nav class="navbar navbar-expand gap-3">
             <div class="mobile-toggle-menu"><i class='bx bx-menu'></i>
             </div>
-
+            <div class="position-relative search-bar d-lg-block d-none" data-bs-toggle="modal"
+                 data-bs-target="#SearchModal">
+                <a href="{{ url('/') }}">Homepage</a>
+            </div>
             <div class="position-relative search-bar d-lg-block d-none" data-bs-toggle="modal"
                  data-bs-target="#SearchModal">
                 <input class="form-control px-5" disabled type="search" placeholder="Search">
