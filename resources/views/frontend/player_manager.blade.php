@@ -71,6 +71,12 @@
                                     <a href="http://{{$playerip}}:1400/status" target="_blank">Status</a>
                                 </li>
                                 <li class="list-group-item">
+                                    <a href="http://{{$playerip}}:1400/setstring" target="_blank">Set String</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="http://{{$playerip}}:1400/testenv" target="_blank">OnlineUpdate</a>
+                                </li>
+                                <li class="list-group-item">
                                     <a href="http://{{$playerip}}:1400/status/trueplayinfo"
                                        target="_blank">Trueplay info</a>
                                 </li>
