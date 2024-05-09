@@ -11,9 +11,32 @@
         <div class="col-lg-12">
             <div class="card card-item">
                 <div class="card-body">
-                    <h3 class="fs-24 font-weight-semi-bold pb-2">Player Manager <b
-                            class="text-success">{{$playerip}}</b></h3>
-                    <div class="divider"><span></span></div>
+                    <form id="myForm" action="{{ route('player.manager') }}" method="get" class="row g-3">
+                        @csrf
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        <div class="form-group col-md-6">
+                            <h5 class="fs-24 font-weight-semi-bold pb-2">Player IP: <b
+                                    class="text-success">{{$playerip}}</b></h5>
+                        </div><!-- end input-box -->
+                        <div class="form-group col-md-4">
+                            <div class="form-group">
+                                <input type="text" name="player_ip" value="{{$playerip}}" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <button class="btn-sm btn-info" type="submit">Change <i
+                                    class="la la-arrow-right icon ml-1"></i></button>
+                        </div><!-- end input-box -->
+                    </form>
+                    <hr>
                     <div class="row">
                         <div class="col-lg-6">
                             {{--                        <ul class="list-group">--}}
