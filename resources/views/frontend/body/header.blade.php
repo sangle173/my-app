@@ -72,8 +72,11 @@
                 <div class="row align-items-center">
                     <div class="col-lg-2">
                         <div class="logo-box">
-                            <a href="{{ url('/') }}" class="logo"><img src="{{ asset('frontend/images/logo2.png') }}"
-                                                                       width="250px" height="60px" alt="logo"></a>
+                            <a href="{{ url('/') }}" class="logo">
+{{--                                <img src="{{ asset('frontend/images/logo2.png') }}"--}}
+{{--                                                                       width="250px" height="60px" alt="logo">--}}
+                                <h1 style="font-family: bold,'Bookman Old Style'; color: black"><b>SONOS</b></h1>
+                            </a>
                             <div class="user-btn-action">
                                 <div class="search-menu-toggle icon-element icon-element-sm shadow-sm mr-2"
                                      data-toggle="tooltip" data-placement="top" title="Tìm kiếm">
