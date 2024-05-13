@@ -77,6 +77,9 @@
                                     <a href="http://{{$playerip}}:1400/testenv" target="_blank">OnlineUpdate</a>
                                 </li>
                                 <li class="list-group-item">
+                                    <a href="http://{{$playerip}}:1400/status/htconfig" target="_blank">Home Theater Configuration</a>
+                                </li>
+                                <li class="list-group-item">
                                     <a href="http://{{$playerip}}:1400/status/trueplayinfo"
                                        target="_blank">Trueplay info</a>
                                 </li>
