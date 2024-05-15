@@ -75,7 +75,8 @@ class IndexController extends Controller
             'tester_id' => 'required',
         ]);
         $instructor = User::find($request -> tester_id);
-        return view('frontend.add_file',compact('instructor'));
+        $files = File::where('instructor_id', $request -> tester_id) ->orderBy('id', 'desc')->get();
+        return view('frontend.add_file',compact('instructor','files'));
     }// End Method
 
     public function UserStoreFile(Request $request)
