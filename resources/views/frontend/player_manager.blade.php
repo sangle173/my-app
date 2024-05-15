@@ -83,6 +83,10 @@
                                     <a href="http://{{$playerip}}:1400/status/trueplayinfo"
                                        target="_blank">Trueplay info</a>
                                 </li>
+                                <li class="list-group-item">
+                                    <a href="https://{{$playerip}}:1443/devunlock"
+                                       target="_blank">Dev Unlock</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
