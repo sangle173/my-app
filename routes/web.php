@@ -493,8 +493,10 @@ Route::get('/subcategory/{id}/{slug}', [IndexController::class, 'SubCategoryCour
 Route::get('/instructor/details/{id}', [IndexController::class, 'InstructorDetails'])->name('instructor.details');
 Route::get('/user/upload/file/{id}', [IndexController::class, 'UserUploadFiles'])->name('user.upload.files');
 Route::get('/player/manager', [IndexController::class, 'PlayerManager'])->name('player.manager');
+Route::get('/player/scanner', [IndexController::class, 'PlayerScanner'])->name('player.scanner');
 Route::get('/user/upload/file', [IndexController::class, 'UserUploadFileGet'])->name('user.uploadfile');
 Route::post('/user/upload/file/post', [IndexController::class, 'UserStoreFile'])->name('user.uploadfile.post');
+Route::post('/player/scanner/scan', [IndexController::class, 'ScannerScan'])->name('player.scan');
 
 Route::post('/add-to-wishlist/{course_id}', [WishListController::class, 'AddToWishList']);
 

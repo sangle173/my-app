@@ -105,17 +105,7 @@
                             <div class="menu-category">
                                 <ul>
                                     <li>
-                                        <a href="#">Team <i class="la la-angle-down fs-12"></i></a>
-                                        <ul class="cat-dropdown-menu">
-
-                                            @foreach ($teams as $cat)
-                                                <li>
-                                                    <a href="{{ url('category/'.$cat->id.'/'.$cat->team_slug) }}">{{ $cat->team_name }}
-                                                        <i class="la la-angle-right"></i></a>
-                                                </li>
-                                            @endforeach
-
-                                        </ul>
+                                        <a href="{{ url('/player/scanner')}}">Scan Network</a>
                                     </li>
                                 </ul>
                             </div><!-- end menu-category -->
@@ -130,9 +120,6 @@
                                 <ul>
                                     <li>
                                         <a href="{{ url('/')}}">Homepage</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('blog') }}">Post </a>
                                     </li>
                                 </ul><!-- end ul -->
                             </nav><!-- end main-menu -->
@@ -178,18 +165,10 @@
              data-placement="left" title="Close menu">
             <i class="la la-times"></i>
         </div><!-- end off-canvas-menu-close -->
-        @php
-            $teams = App\Models\Team::all();
-        @endphp
         <ul class="generic-list-item off-canvas-menu-list pt-90px">
             <li>
-                <a href="#" class="text-secondary">Team</a>
+                <a href="#" class="text-secondary">Scan Network</a>
             </li>
-            @foreach ($teams as $cat)
-                <li>
-                    <a href="{{ url('category/'.$cat->id.'/'.$cat->team_slug) }}">{{ $cat->team_name }}</a>
-                </li>
-            @endforeach
         </ul>
     </div><!-- end off-canvas-menu -->
     <div class="mobile-search-form">

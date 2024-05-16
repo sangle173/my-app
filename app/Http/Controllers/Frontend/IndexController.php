@@ -11,6 +11,8 @@ use App\Models\SubCategory;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Str;
 
 class IndexController extends Controller
 {
@@ -133,5 +135,36 @@ class IndexController extends Controller
         ]);
         $playerip = $request -> player_ip;
         return view('frontend.player_manager',compact('playerip'));
+    }// End Method
+
+    public function PlayerScanner(Request $request){
+        exec('nmap -sn 192.168.120.0/24', $output);
+        $array = [];
+        foreach ($output as $key => $data) {
+            if (Str::contains($data, 'MAC Address:')) {
+                array_push($array, (object)['ip' => $output[$key - 2], 'mac_address' => $output[$key]]);
+            }
+        }
+        return view('frontend.player_scanner', compact('array'));
+    }// End Method
+
+    public function ScannerScan(Request $request)
+    {
+
+//        $array = array('foo' => 'bar');
+//        foreach ($output as $key => $data) {
+//            if ( Str::contains($data, 'MAC Address:')){
+//                $array = array_add(['ip' => 'mac_address'], $output[$key-2], $output[$key]);
+//            }
+//        }
+//        dd($result);
+
+//        $notification = array(
+//            'message' => 'Successfully',
+//            'alert-type' => 'success'
+//        );
+        return view('frontend.player_manager',compact('output'));
+
+//        return redirect()->back()->with($notification);
     }// End Method
 }
