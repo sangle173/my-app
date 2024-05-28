@@ -138,7 +138,10 @@ class IndexController extends Controller
     }// End Method
 
     public function PlayerScanner(Request $request){
-        exec('nmap -sn 192.168.120.0/24', $output);
+        exec('ipconfig', $out);
+        $arr = explode('.',substr($out[18], 39));
+        $command = "nmap -sn " . $arr[0]."." . $arr[1] . "." . $arr[2] . ".0/24";
+        exec($command, $output);
         $array = [];
         foreach ($output as $key => $data) {
             if (Str::contains($data, 'MAC Address:')) {

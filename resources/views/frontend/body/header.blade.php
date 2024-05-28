@@ -105,7 +105,7 @@
                             <div class="menu-category">
                                 <ul>
                                     <li>
-                                        <a href="{{ url('/player/scanner')}}">Scan Network</a>
+                                        <a href="http://192.168.188.147/angular-example/browser/">Daily Report</a>
                                     </li>
                                 </ul>
                             </div><!-- end menu-category -->
@@ -119,7 +119,7 @@
                             <nav class="main-menu">
                                 <ul>
                                     <li>
-                                        <a href="{{ url('/')}}">Homepage</a>
+                                        <a href="{{ url('/player/scanner')}}">Scan Network</a>
                                     </li>
                                 </ul><!-- end ul -->
                             </nav><!-- end main-menu -->
@@ -168,6 +168,9 @@
         <ul class="generic-list-item off-canvas-menu-list pt-90px">
             <li>
                 <a href="#" class="text-secondary">Scan Network</a>
+            </li>
+            <li>
+                <a href="http://192.168.188.147/angular-example/browser/" class="text-secondary">Daily Report</a>
             </li>
         </ul>
     </div><!-- end off-canvas-menu -->
