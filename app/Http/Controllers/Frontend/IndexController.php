@@ -139,7 +139,13 @@ class IndexController extends Controller
 
     public function PlayerScanner(Request $request){
         exec('ipconfig', $out);
-        $arr = explode('.',substr($out[18], 39));
+        $str = '';
+        foreach ($out as $key => $cmd) {
+            if(str_contains($cmd, '192.168')) {
+                $str = $cmd;
+            }
+        }
+        $arr= explode('.',substr($str, 39));
         $command = "nmap -sn " . $arr[0]."." . $arr[1] . "." . $arr[2] . ".0/24";
         exec($command, $output);
         $array = [];
