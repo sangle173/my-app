@@ -12,6 +12,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Process;
 use Illuminate\Support\Str;
 
 class IndexController extends Controller
@@ -138,6 +139,9 @@ class IndexController extends Controller
     }// End Method
 
     public function PlayerScanner(Request $request){
+        $result = Process::run('nmap -sn 192.168.120.0/24');
+        dd($result->output());
+
         exec('ipconfig', $out);
         $str = '';
         foreach ($out as $key => $cmd) {
